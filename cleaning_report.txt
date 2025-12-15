@@ -1,0 +1,20 @@
+**Data Quality Cleaning Report**
+
+**1. Overview of the Dataset**  
+The dataset consists of 4 rows and 6 columns, with the following attributes: "First Name," "LastName," "AGE," "city," "JoinDate," and "Active?". The data types for these columns include text, number, and date. Notably, there is a discrepancy in the naming conventions, such as extra spaces in column names and inconsistent casing in the values.
+
+**2. Summary of All Changes Applied**  
+To enhance data consistency, the following action was taken:
+- The case in the "First Name" column was standardized to ensure uniformity. 
+
+**3. Issues Flagged for Human Review**  
+Currently, there are no issues flagged for human review. However, it is important to note that the "AGE" column contains a missing value for one entry, which may require further investigation.
+
+**4. Recommendations for Next Steps**  
+- Review the missing value in the "AGE" column to determine if it can be filled or if the entry should be removed.
+- Consider standardizing the casing for all text fields, including "LastName" and "city," to maintain consistency across the dataset.
+- Evaluate the format of the "JoinDate" column to ensure uniformity in date representation.
+- Assess the "Active?" column for consistency in responses, as there are variations in how activity status is recorded (e.g., "Yes," "Y," and "1").
+
+**5. Any Warnings About Data Quality Risks**  
+There are potential data quality risks associated with the inconsistencies in casing and formatting across various columns. These discrepancies can lead to challenges in data analysis and reporting. Additionally, the presence of missing values in the "AGE" column could impact any analyses that rely on this information. It is crucial to address these issues to ensure the integrity and reliability of the dataset moving forward.
