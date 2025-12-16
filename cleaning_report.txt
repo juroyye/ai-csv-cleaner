@@ -1,20 +1,30 @@
 **Data Quality Cleaning Report**
 
 **1. Overview of the Dataset**  
-The dataset consists of 4 rows and 6 columns, with the following attributes: "First Name," "LastName," "AGE," "city," "JoinDate," and "Active?". The data types for these columns include text, number, and date. Notably, there is a discrepancy in the naming conventions, such as extra spaces in column names and inconsistent casing in the values.
+The dataset consists of 100 rows and 6 columns, capturing customer orders for various flavors. The columns include `customer_id`, `name`, `flavor`, `order_date`, `quantity`, and `member`. Each column has been assessed for data quality, and the data types are as follows: `customer_id` (number), `name` (text), `flavor` (text), `order_date` (date), `quantity` (text), and `member` (text). Notably, there are no missing values across any of the columns.
 
 **2. Summary of All Changes Applied**  
-To enhance data consistency, the following action was taken:
-- The case in the "First Name" column was standardized to ensure uniformity. 
+The following cleaning action was performed on the dataset:
+- Whitespace was stripped from the `name` column to ensure consistency in formatting.
 
 **3. Issues Flagged for Human Review**  
-Currently, there are no issues flagged for human review. However, it is important to note that the "AGE" column contains a missing value for one entry, which may require further investigation.
+Several issues have been identified that require further examination:
+- **Invalid date format**: The `order_date` for `customer_id` 5 is not in a recognizable date format.
+- **Non-numeric quantity value**: The `quantity` for `customer_id` 6 contains a non-numeric entry ("three").
+- **Empty quantity values**: The `quantity` fields for `customer_id` 4 and 20 are empty.
+- **Inconsistent categorical values**: The `member` column contains inconsistent entries across multiple customer IDs, indicating variations in how membership status is recorded.
 
 **4. Recommendations for Next Steps**  
-- Review the missing value in the "AGE" column to determine if it can be filled or if the entry should be removed.
-- Consider standardizing the casing for all text fields, including "LastName" and "city," to maintain consistency across the dataset.
-- Evaluate the format of the "JoinDate" column to ensure uniformity in date representation.
-- Assess the "Active?" column for consistency in responses, as there are variations in how activity status is recorded (e.g., "Yes," "Y," and "1").
+To enhance the quality of the dataset, the following actions are recommended:
+- Review and correct the invalid date format for `customer_id` 5 to ensure it adheres to a standard date format.
+- Standardize the `quantity` values to ensure they are all numeric, addressing the non-numeric entry for `customer_id` 6.
+- Fill in or remove the empty `quantity` values for `customer_id` 4 and 20 based on business rules.
+- Normalize the entries in the `member` column to ensure consistency, potentially converting all values to a standard format (e.g., "yes", "no").
 
-**5. Any Warnings About Data Quality Risks**  
-There are potential data quality risks associated with the inconsistencies in casing and formatting across various columns. These discrepancies can lead to challenges in data analysis and reporting. Additionally, the presence of missing values in the "AGE" column could impact any analyses that rely on this information. It is crucial to address these issues to ensure the integrity and reliability of the dataset moving forward.
+**5. Warnings About Data Quality Risks**  
+There are several risks associated with the current state of the dataset:
+- The presence of inconsistent categorical values in the `member` column could lead to inaccurate analysis and reporting.
+- Non-standard date formats may result in errors during data processing or analysis, affecting time-based insights.
+- Non-numeric and empty values in the `quantity` column can hinder quantitative analysis and lead to misleading conclusions.
+
+Addressing these issues promptly will significantly improve the overall data quality and reliability of insights derived from this dataset.
